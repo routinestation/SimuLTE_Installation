@@ -1,0 +1,87 @@
+# change the permission
+sudo -s
+
+# Update and install some prerequisite
+sudo apt-get update && apt-get install -y \
+    git \
+    wget \
+    vim \
+    build-essential \
+    gcc \
+    g++ \
+    bison \
+    flex \
+    perl \
+    qt5-default \
+    tcl-dev \
+    tk-dev \
+    libxml2-dev \
+    zlib1g-dev \
+    default-jre \
+    doxygen \
+    graphviz \
+    xvfb
+
+# update QT 
+sudo apt-get install -y \
+    libopenscenegraph-dev \
+    openscenegraph-plugin-osgearth \
+    libosgearth-dev \
+    qt5-default \
+    libxml2-dev \
+    zlib1g-dev \
+    default-jre \
+    libwebkitgtk-3.0-0
+
+# Change the directory
+cd Downloads
+
+# Download Omnet++ version 5.1.1 
+wget https://ipfs.omnetpp.org/release/5.1.1/omnetpp-5.1.1-src-linux.tgz
+
+# unzip the downloaded OMNET file
+tar xzf omnetpp-5.1.1-src-linux.tgz
+
+# Change directory
+cd omnetpp-5.1.1
+
+# Set the environment
+. setenv
+
+# Now copy the path which is /home/user/Downloads/omnetpp-5.1.1
+# instead of the user, you will see your current username.
+
+gedit ~/.bashrc
+
+# Copay and paste this line in your terminal:(Only change user with your current username)
+export PATH=$PATH:/home/user/Downloads/omnetpp-5.1.1/bin
+
+# Now close the current terminal which is very important 
+sudo -s 
+
+# Change the directory
+cd Download
+cd omnetpp-5.1.1
+
+# Configure Omnet++
+./configure
+
+# After this stage you should be able to see Good! in your terminal.
+
+# Install the omnet++
+make
+
+#run the Omnet++
+omnetpp
+
+# To download and install Simulte on Omnet++
+cd Download
+
+# Download Simulte 
+wget http://www.iet.unipi.it/g.nardini/simulte_veins/simulte_veins.tar.gz
+
+# unzip it
+tar xzf simulte_veins.tar.gz
+
+# To import the Simulte in the Omnet++ you can follow the rest in this video tutorial 
+# https://barzegar.it/blog/simulte/
